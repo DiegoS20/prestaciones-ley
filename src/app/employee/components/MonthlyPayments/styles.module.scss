@@ -1,0 +1,29 @@
+.modal-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 150px;
+
+  .incomings {
+    .incomings-table {
+      margin-bottom: 100px;
+    }
+
+    .info-boleta {
+      font-size: 0.7rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 15px;
+
+      .empresa {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .prestaciones {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
