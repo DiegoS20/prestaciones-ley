@@ -80,9 +80,7 @@ export default function MonthlyPayments() {
                   <TableCell>
                     {moment(p.from).add(1, "days").format("DD/MM/YYYY")}
                   </TableCell>
-                  <TableCell>
-                    {moment(p.to).add(1, "days").format("DD/MM/YYYY")}
-                  </TableCell>
+                  <TableCell>{moment(p.to).format("DD/MM/YYYY")}</TableCell>
                   <TableCell>{USDFormat.format(isss)}</TableCell>
                   <TableCell>{USDFormat.format(afp)}</TableCell>
                   <TableCell>{USDFormat.format(rent)}</TableCell>
