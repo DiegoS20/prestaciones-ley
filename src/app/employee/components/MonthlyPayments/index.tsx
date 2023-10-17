@@ -63,8 +63,8 @@ export default function MonthlyPayments() {
               return (
                 <TableRow key={p.id}>
                   <TableCell>{p.id}</TableCell>
-                  <TableCell>{new Date(p.from).toLocaleDateString()}</TableCell>
-                  <TableCell>{new Date(p.to).toLocaleDateString()}</TableCell>
+                  <TableCell>{new Date(p.from).toUTCString()}</TableCell>
+                  <TableCell>{new Date(p.to).toUTCString()}</TableCell>
                   <TableCell>{USDFormat.format(isss)}</TableCell>
                   <TableCell>{USDFormat.format(afp)}</TableCell>
                   <TableCell>{USDFormat.format(rent)}</TableCell>
