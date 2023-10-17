@@ -12,6 +12,7 @@ import {
   TableContainer,
   Modal,
 } from "@mui/material";
+import moment from "moment";
 
 import calculateRent from "@/helpers/calculateRent";
 import getAFP from "@/helpers/getAFP";
@@ -30,6 +31,15 @@ export default function MonthlyPayments() {
     user!.payments,
     user!.position,
   ]);
+
+  const dateWithoutTimezone = (date: Date) => {
+    const _date = new Date(date);
+    const tzoffset = _date.getTimezoneOffset() * 1000;
+    const withoutTimezone = new Date(_date.valueOf() + tzoffset)
+      .toISOString()
+      .slice(0, -1);
+    return withoutTimezone;
+  };
 
   return (
     <>
@@ -59,12 +69,20 @@ export default function MonthlyPayments() {
               const rent = calculateRent(grosserySalary);
               const liquidSalary =
                 grosserySalary - isss - afp - rent + p.aguinaldo;
+              const from = new Date(
+                dateWithoutTimezone(p.from)
+              ).toLocaleString();
+              const to = new Date(dateWithoutTimezone(p.to)).toLocaleString();
 
               return (
                 <TableRow key={p.id}>
                   <TableCell>{p.id}</TableCell>
-                  <TableCell>{new Date(p.from).toUTCString()}</TableCell>
-                  <TableCell>{new Date(p.to).toUTCString()}</TableCell>
+                  <TableCell>
+                    {moment(p.from).add(1, "days").format("DD/MM/YYYY")}
+                  </TableCell>
+                  <TableCell>
+                    {moment(p.to).add(1, "days").format("DD/MM/YYYY")}
+                  </TableCell>
                   <TableCell>{USDFormat.format(isss)}</TableCell>
                   <TableCell>{USDFormat.format(afp)}</TableCell>
                   <TableCell>{USDFormat.format(rent)}</TableCell>
