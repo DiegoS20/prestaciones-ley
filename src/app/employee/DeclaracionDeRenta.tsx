@@ -27,7 +27,7 @@ export default function DeclaracionDeRenta({ year }: Props) {
       <p style={{ marginBottom: "50px" }}>
         El infrascrito agente de retención hace constar que{" "}
         {user?.lastName.toUpperCase()}, {user?.name.toUpperCase()} con NIT.
-        0000-000000-000-0 en su calidad de empleada de esta empresa, devengó
+        0000-000000-000-0 en su calidad de empleado/a de esta empresa, devengó
         durante el perído comprendido entre el {from.toLocaleDateString()} al{" "}
         {to.toLocaleDateString()}, lo siguiente
       </p>

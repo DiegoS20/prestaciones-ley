@@ -106,7 +106,7 @@ export default function EmployeePage() {
             >
               {() => (
                 <Button variant="contained">
-                  Declaración de renta {new Date().getFullYear()}
+                  Declaración de renta {new Date().getFullYear() - 1}
                 </Button>
               )}
             </PDFDownloadLink>
