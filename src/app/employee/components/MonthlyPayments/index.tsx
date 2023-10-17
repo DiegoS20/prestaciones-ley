@@ -69,10 +69,6 @@ export default function MonthlyPayments() {
               const rent = calculateRent(grosserySalary);
               const liquidSalary =
                 grosserySalary - isss - afp - rent + p.aguinaldo;
-              const from = new Date(
-                dateWithoutTimezone(p.from)
-              ).toLocaleString();
-              const to = new Date(dateWithoutTimezone(p.to)).toLocaleString();
 
               return (
                 <TableRow key={p.id}>
